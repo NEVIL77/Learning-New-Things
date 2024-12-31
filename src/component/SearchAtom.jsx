@@ -1,6 +1,11 @@
+import { useState } from "react"
 import SearchInputAtom from "./searchAtom/SearchInputAtom"
+import SearchResultAtom from "./searchAtom/SearchResultAtom"
 
 const SearchAtom = ()=>{
+
+    const [result,setResult] = useState([])
+    const [searchValue, setSearchValue] = useState('')
 
     const data = [
         {
@@ -16,9 +21,23 @@ const SearchAtom = ()=>{
             email : "Cucumber@gmail.com"
         },
     ]
+
+    const handleType = (event)=>{
+        const search = event.target.value.toLowerCase()
+        if(search == ''){
+            setResult([])
+            setSearchValue('')
+        }
+        else{
+            const result= data.filter((data)=>data.name.toLowerCase().includes(search))
+            setResult(result)
+            setSearchValue(search)
+        }
+    }
     return (
         <>
-            <SearchInputAtom/>
+            <SearchInputAtom handleType={handleType} searchValue={searchValue} />
+            <SearchResultAtom result={result} searchValue={searchValue}/> 
         </>
     )
 }
