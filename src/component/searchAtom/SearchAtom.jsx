@@ -1,6 +1,6 @@
 import { useState } from "react"
-import SearchInputAtom from "./searchAtom/SearchInputAtom"
-import SearchResultAtom from "./searchAtom/SearchResultAtom"
+import SearchInputAtom from "./SearchInputAtom"
+import SearchResultAtom from "./SearchResultAtom"
 
 const SearchAtom = ()=>{
 
