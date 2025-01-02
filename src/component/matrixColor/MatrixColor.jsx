@@ -77,7 +77,6 @@ const MatrixColor = () => {
 
     return (
         <>
-            <h1>Working</h1>
             <div className="box-container">
                     {renderBox()}
             </div>
