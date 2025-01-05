@@ -71,4 +71,33 @@
   transition: background-color 0.3s ease;
 }
 
+.button {
+  border: 1px solid #000;
+  padding: 8px;
+  margin: 8px;
+  background-color: #60a5fa;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.input {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside the input */
+    margin: 8px 0; /* Margin around the input */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    border: 2px solid #ccc; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    background-color: #f8f8f8; /* Background color */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.comment-box{
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  word-wrap: break-word;
+  max-width: 300px;
+}
 
