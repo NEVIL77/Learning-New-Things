@@ -1,0 +1,81 @@
+/* .folder{
+    margin-top: 6px;
+    background-color: rgb(233,233,233);
+    display: flex;
+    justify-content: space-between;
+    padding: 3px;
+    width: 300px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0,0,0);
+}
+.folder > span{
+    margin: 0 5px 2px 0;
+}
+
+.file{
+    margin-top : 5px;
+    padding-left: 5px;
+    display: flex;
+    flex-direction: column;
+} */
+
+/* Folder Styles */
+.folder {
+    background-color: #f3f3f3; /* Light gray for folder background */
+    margin: 8px 0; /* Add vertical spacing between folders */
+    justify-content: space-between; /* Ensure icon and text are spaced */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 300px; /* Fixed width for folders */
+    display: flex; /* Align folder icon and name side by side */
+    align-items: center; /* Vertically center icon and text */
+    cursor: pointer; /* Show pointer on hover */
+    padding: 8px 12px; /* Padding for better appearance */
+    font-family: Arial, sans-serif; /* Consistent font style */
+    font-size: 16px; /* Text size for folder name */
+    color: #333; /* Darker text color */
+    text-align: left; /* Ensure text aligns to the left */
+}
+
+.folder > span {
+    margin-left: 5px; /* Add slight spacing for the folder icon */
+}
+
+/* File Styles */
+.file {
+    margin: 6px 0 6px 10px; /* Indent files to show hierarchy */
+    padding: 5px 10px; /* Add padding for file appearance */
+    font-size: 14px; /* Slightly smaller text size for files */
+    font-family: Arial, sans-serif; /* Consistent font style */
+    color: #444; /* Dark gray text for files */
+    display: block; /* Ensure files are left-aligned */
+    background-color: #ffffff; /* Optional: White background for files */
+    border-radius: 3px; /* Rounded corners for files */
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* File Hover Effect */
+.file:hover {
+    background-color: #e8e8e8; /* Highlight on hover */
+    cursor: pointer; /* Show pointer on hover */
+}
+
+/* Folder Hover Effect */
+.folder:hover {
+    background-color: #e0e0e0; /* Slightly darker gray on hover */
+}
+
+/* Items (Nested Structure) */
+.items {
+    padding-left: 20px; /* Indent nested items for hierarchy */
+}
+
+/* Root Container Alignment */
+.container {
+    text-align: left; /* Ensure everything aligns to the left */
+    padding: 10px; /* Add some padding to the container */
+    margin: 0 auto; /* Center the container horizontally */
+    max-width: 400px; /* Optional: Set max width for the container */
+}
+
