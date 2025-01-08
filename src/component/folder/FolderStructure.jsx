@@ -10,6 +10,10 @@ const Folder = ({ explorer }) => {
             <div className="container">
                 <div className="folder" onClick={() => setExpane(!expane)}>
                     <span>{expane ? "📂" : "📁"} {explorer.name}</span>
+                    <div className="g-8px d-flex mt-10px">
+                        <button className="button">˖📁 Add </button>
+                        <button className="button"> ˖📄 Add </button>
+                    </div>
                 </div>
 
                 <div className="items" style={{ display: expane ? "block" : "none" }}>
@@ -21,7 +25,7 @@ const Folder = ({ explorer }) => {
         );
     } else {
         return (
-            <span className="file">📃 {explorer.name}</span>
+            <span className="file">📄 {explorer.name}</span>
         );
     }
 };
