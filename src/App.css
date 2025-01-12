@@ -71,4 +71,80 @@
   transition: background-color 0.3s ease;
 }
 
+.button {
+  border: 1px solid #000;
+  padding: 8px;
+  margin: 8px;
+  background-color: #60a5fa;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.input {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside the input */
+    margin: 8px 0; /* Margin around the input */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    border: 2px solid #ccc; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    background-color: #f8f8f8; /* Background color */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.comment-box{
+  width: 100%; /* Full width */
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  word-wrap: break-word;
+  max-width: 300px;
+}
+
+.comment-container {
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Spacing inside the box */
+  margin-bottom: 10px; /* Space between comments */
+  background-color: #f9f9f9; /* Light gray background */
+  max-width: 500px; /* Limit width to a reasonable size */
+  text-align: left; /* Ensure left alignment for all content */
+}
+
+.comment-box {
+  font-size: 14px; /* Standard text size */
+  color: #333; /* Dark text color */
+  margin-bottom: 10px; /* Space below the comment */
+  word-wrap: break-word; /* Ensure long text wraps */
+  text-align: left; /* Explicitly align the text to the left */
+}
+
+.button-container {
+  display: flex;
+  justify-content: start; /* Align buttons to the left */
+  gap: 5px; /* Space between buttons */
+  margin-top: 5px; /* Space above buttons */
+}
+
+.button {
+  font-size: 12px; /* Small button text size */
+  padding: 5px 10px; /* Compact button padding */
+  border: none; /* Remove border */
+  border-radius: 3px; /* Slightly rounded buttons */
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+.button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.button:disabled {
+  background-color: #ccc; /* Gray for disabled state */
+  cursor: not-allowed; /* Indicate it's not clickable */
+}
+
 
