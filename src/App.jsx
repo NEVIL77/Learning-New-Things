@@ -6,6 +6,7 @@ import { useEffect ,useState} from 'react'
 // import MatrixColor from './component/matrixColor/matrixColor'
 import explorer from './data/folderJSON'
 import Folder from './component/folder/FolderStructure'
+import useTraverseTree from './component/folder/hooks/useTraverseTree'
 // const comments = {
 //   id: 1,
 //   iteams: [
@@ -46,12 +47,20 @@ import Folder from './component/folder/FolderStructure'
 
 function App() {
 
-  // ---- Nested Comment Part ----
+  // ! 5 ---- Nested Comment Part ----
   // const [commentData,setCommentData] = useState(comments)
   // -----------------------------
 
   const [explorerData, setExplorerData] = useState(explorer)
 
+  const { insertNode } = useTraverseTree()
+
+  const handleInsertNode = (folderId,item,isFolder)=>{
+    const finalTree = insertNode( explorer,folderId,item,isFolder)
+    setExplorerData(finalTree)
+  }
+
+  //! 5 ------------------------------------
 
   useEffect(()=>{
 
@@ -63,7 +72,7 @@ function App() {
       {/* <MatrixColor /> */}
       {/* <FilterLetterbyLetter/> */}
       {/* <NestedComment commentData={commentData} /> */}
-      <Folder explorer={explorerData}/>
+      <Folder handleInsertNode={handleInsertNode} explorer={explorerData}/> 
     </>
   )
 }

@@ -1,8 +1,8 @@
-import { data } from "autoprefixer"
 import { useEffect, useState } from "react"
 import "./style.css";
+import useTraverseTree from "./hooks/useTraverseTree";
 
-const Folder = ({ explorer }) => {
+const Folder = ({ handleInsertNode , explorer }) => {
 
     const [expane, setExpane] = useState(false); // state to expand folder Basically Folder Expand and all
     const [showInput,setShowInput] = useState({  // for input field
@@ -30,6 +30,7 @@ const Folder = ({ explorer }) => {
     const onAddFolder = (e)=>{
         if(e.keyCode == 13 && e.target.value){                   // if enter key is press and input is not empty then 
             // folder/file add algorithem logic here where this is tree algorithem and we traverse the tree algorithem and if we find the node then we will add the algorithem 
+            handleInsertNode( explorer.id , e.target.value , showInput.isFolder )
             setShowInput({...showInput,visible:false})           // close the input field which addd the folder or file 
         }
     }
@@ -84,3 +85,7 @@ export default Folder;
 
 // 1 render the first level of the data
 // 2 on Click do hide and show 
+
+// if i add the add then how can i stop the event bubbling 
+// if folder is close hten how can i expand and show the input to add
+// add file folder logic here
