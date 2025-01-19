@@ -3,6 +3,7 @@ import { useEffect ,useState} from 'react'
 
 // ---- React Form Hook ----
 import ReactFormHook from './component/react-form-hook/ReactFormHook'
+import ReactYulpForm from './component/reactYulpForm/ReactYulpForm'
 // -----------------------------
 
 // import NestedComment from './component/NestedComment/NestedComment'
@@ -80,7 +81,11 @@ function App() {
       {/* // ----------------------------- */}
 
       {/* // ---- React Form Hook---- */}
-      <ReactFormHook/>
+      {/* <ReactFormHook/> */}
+      {/* // ----------------------------- */}
+
+      {/* // ---- React Form with YULP---- */}
+      <ReactYulpForm/>
       {/* // ----------------------------- */}
     </>
   )
