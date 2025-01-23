@@ -2,8 +2,9 @@ import './App.css'
 import { useEffect ,useState} from 'react'
 
 // ---- React Form Hook ----
-import ReactFormHook from './component/react-form-hook/ReactFormHook'
-import ReactYulpForm from './component/reactYulpForm/ReactYulpForm'
+// import ReactFormHook from './component/react-form-hook/ReactFormHook'
+// import ReactYulpForm from './component/reactYulpForm/ReactYulpForm'
+import ProductCart from './component/product-cart/ProductCart'
 // -----------------------------
 
 // import NestedComment from './component/NestedComment/NestedComment'
@@ -85,7 +86,11 @@ function App() {
       {/* // ----------------------------- */}
 
       {/* // ---- React Form with YULP---- */}
-      <ReactYulpForm/>
+      {/* <ReactYulpForm/> */}
+      {/* // ----------------------------- */}
+
+      {/* // ---- PRODUCT CART ---- */}
+      <ProductCart/>
       {/* // ----------------------------- */}
     </>
   )
