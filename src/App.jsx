@@ -5,6 +5,7 @@ import { useEffect ,useState} from 'react'
 // import ReactFormHook from './component/react-form-hook/ReactFormHook'
 // import ReactYulpForm from './component/reactYulpForm/ReactYulpForm'
 import ProductCart from './component/product-cart/ProductCart'
+import Temp from './component/tempCode/Temp'
 // -----------------------------
 
 // import NestedComment from './component/NestedComment/NestedComment'
@@ -90,8 +91,11 @@ function App() {
       {/* // ----------------------------- */}
 
       {/* // ---- PRODUCT CART ---- */}
-      <ProductCart/>
+      {/* <ProductCart/> */}
       {/* // ----------------------------- */}
+      
+      {/* ! TEMP FILE TO TEMP CODE   */}
+      <Temp/>
     </>
   )
 }
