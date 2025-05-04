@@ -1,6 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Temp = () => {
+    const [ skillSubjectsList , setSkillSubjectsList] = useState([])
+    const [ skillMarkSheetList , setSkillMarkSheetList] = useState([])
+    const [ skillSubjectLists , setSkillSubjectLists] = useState([])
+    useEffect(()=>{
+        console.log("skillSubjectsList >>",skillSubjectsList)
+        console.log("skillMarkSheetList >> ",skillMarkSheetList)
+    },[skillMarkSheetList,setSkillSubjectsList])
     const data = {
         "result_details": [
             {
@@ -988,7 +995,68 @@ const Temp = () => {
         ]
     }
     const markSheet = ['COMM-1','COMM-2','COMM-3']
+
+    // const getTotalGrade = (skillMarkSheet, subject, what, skillSubjectList) => {
+    //     console.log(">>>",skillSubjectList.flat())
+    //     const result = skillSubjectList.flat().find(
+            
+    //         (obj)=>{
+    //             if(obj.mark_sheet_name == skillMarkSheet){
+    //                 obj.subject_details.find(
+    //                     (subDetails)=>{
+    //                         subDetails.subjects.find(
+    //                             (eachSub)=>{
+    //                                 if(eachSub.name == subject){
+    //                                     return eachSub
+    //                                 }
+    //                             }
+    //                         )
+    //                     }
+    //                 )
+    //             }
+    //         }
+    //     )
+    //     console.log('result: >>>>>', result);
+        
+    // };
+    const getTotalGrade = (skillMarkSheet, subject, what) => {
+        // console.log(">>>", skillSubjectList.flat());
+
+        const result = skillSubjectLists?.flat()?.find((markSheet) => 
+            markSheet.mark_sheet_name === skillMarkSheet
+        );
+        if (!result) return null;
+
+        const subjectDetails = result.subject_details?.find((subDetails) =>
+            subDetails.subjects?.some((eachSub) => eachSub.name === subject)
+        );
+
+        if (!subjectDetails) return null;
+
+        const temp1 = subjectDetails.subjects?.find((eachSub) => eachSub.name === subject) || null;
+        // console.log(">>> ? temp1 ",temp1)
+        if(!subjectDetails) return null;
+        
+        if(what=='totalMarks'){
+            return temp1.totalMarks
+        }
+        else{
+            return temp1.exams[0].name || '-'
+        }
+
+
     
+        // const result = skillSubjectList.flat().find((markSheet) => {
+        //     if (markSheet.mark_sheet_name === skillMarkSheet) {
+        //         return markSheet.subject_details.some((subDetails) =>
+        //             subDetails.subjects.some((eachSub) => eachSub.name === subject)
+        //         );
+        //     }
+        //     return false;
+        // });
+    
+        // return result || null; // Returns null if no match is found
+    };
     
     useEffect(() => {
 
@@ -1023,18 +1091,23 @@ const Temp = () => {
                 main.push(mainTemp)
             })
             coSchoolasticList.push(co_sch)
-            skillSubjectList.push(skill)
+            setSkillSubjectLists( skillSubjectList.push(skill))
             mainSubjectList.push(main)
         })
+        if(skillSubjectList){
+            // console.log(">>>>>>>>>",getTotalGrade("COMM - 1","Sanskrit",'grade',skillSubjectList))
+            const result = getTotalGrade("COMM - 1", "Social Science", "grade");
 
-        console.log("ye le co-Schoolastic >>",coSchoolasticList)
-        console.log("ye le skillSubjectList >>",skillSubjectList)
+            // console.log(">>>>> ?",result);
+        }
+
+        // console.log("ye le co-Schoolastic >>",coSchoolasticList)
+        // console.log("ye le skillSubjectList >>",skillSubjectList)
         // console.log("ye le temp skill>>",skillSubjectList)
         // console.log("ye le temp main>>",mainSubjectList)
 
 
         const extractSkillSubjectData= ()=> {
-            console.log("calling >>")
             let markSheets = new Set();
             let subjects = new Set();
             skillSubjectList.forEach((group) => {
@@ -1047,13 +1120,9 @@ const Temp = () => {
                     });
                 });
             });
-            console.log('markSheets: >>', markSheets);
-            console.log('subjects: >>', subjects);
-        
-            const markSheetList  = Array.from(markSheets);
-            const mSubjectsList  = Array.from(subjects);
-            console.log('markSheetList >>', markSheetList);
-            console.log('mSubjectsList >>', mSubjectsList);
+            
+            setSkillMarkSheetList(Array.from(markSheets));
+            setSkillSubjectsList(Array.from(subjects));
         }
         extractSkillSubjectData()
 
@@ -1249,7 +1318,7 @@ return (
             <thead>
                 <tr className="border black m-4 p-4 w-20" >
                     <th className="border black" >Subjects</th>
-                    {markSheet.map( (markSheetName,index) => (
+                    {skillMarkSheetList.map( (markSheetName,index) => (
                         <th key={index} className="border black">{markSheetName} 
                             <table>
                                 <tr>
@@ -1261,9 +1330,25 @@ return (
                     ))}
                 </tr>
             </thead>
-            <tbody>
 
+            <tbody>
+                {skillSubjectsList.map((subject, index) => (
+                    <tr key={index}>
+                        <td className="border black">{subject}</td>
+                        {skillSubjectsList.map((skillMarkSheet, index) => (
+                            <td key={index} className="border black">
+                                <table>
+                                    <tr>
+                                        <td className="border black">{getTotalGrade(skillMarkSheet, subject, 'total')}</td>
+                                        <td className="border black">{getTotalGrade(skillMarkSheet, subject, 'grade')}</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        ))}
+                    </tr>
+                ))}
             </tbody>
+            
         </table>
     </div>
 )
