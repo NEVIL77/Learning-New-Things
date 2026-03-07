@@ -17,43 +17,7 @@ import ProductCart from './component/product-cart/ProductCart'
 // import Folder from './component/folder/FolderStructure'
 // -----------------------------
 
-// const comments = {
-//   id: 1,
-//   iteams: [
-//     {
-//       id: 11,
-//       name: 'hello',
-//       iteams: [
-//         {
-//           id: 12,
-//           name: 'hello2',
-//           iteams: [
-//             {
-//               id: 123,
-//               name: 'hello3',
-//               iteams: []
-//             }
-//           ]
-//         }
-//       ]
-//     }, {
-//       id: 2,
-//       name: 'hello',
-//       iteams: []
-//     },
-//     {
-//       id: 3,
-//       name: 'hello',
-//       iteams: [
-//         {
-//           id: 31,
-//           name: 'hello2',
-//           iteams: []
-//         }
-//       ]
-//     }
-//   ]
-// }
+// import comments from "./utils/commentsData"
 
 function App() {
 
